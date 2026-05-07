@@ -8,15 +8,22 @@ Create a kind-config.yaml file:
 
 ```yaml
 
-kind: Cluster
+kind: Cluster # Kind kis tarhan ke file hai cluster bana ne wale file hai
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
   - role: control-plane
-    image: kindest/node:v1.35.1
+    image: kindest/node:v1.35.1 # Latest Image Download kare ge k8s
   - role: worker
     image: kindest/node:v1.35.1
   - role: worker
     image: kindest/node:v1.35.1
+    extraPortMappings:  # Cluster Docker ke ander hai or Ec2 AWS bahir hai to dono ka port alag ho ga is liye map kar rahe hain
+    - containerPort: 80
+      hostPort: 80
+      protocol: TCP
+    - containerPort: 443
+      hostPort: 443
+      protocol: TCP
 ```
 Create the cluster using the configuration file:
 

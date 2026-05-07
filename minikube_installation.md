@@ -72,6 +72,7 @@ Make it executable and move it into your path:
 ```bash
 chmod +x minikube
 sudo mv minikube /usr/local/bin/
+sudo minikube version
 ```
 
 <kbd>![image](https://github.com/paragpallavsingh/kubernetes-kickstarter/assets/40052830/80e8a137-286a-4334-886b-ea4821f596b2)</kbd>
@@ -101,7 +102,7 @@ sudo mv kubectl /usr/local/bin/
 Now, you can start Minikube with the following command:
 
 ```bash
-minikube start --driver=docker --vm=true 
+minikube start --driver=docker --vm=true  # --vm=true jab likhte hai jab Ec2 AWS par hon
 ```
 
 This command will start a single-node Kubernetes cluster inside a Docker container.
@@ -123,6 +124,7 @@ You can also use `kubectl` to interact with your cluster:
 
 ```bash
 kubectl get nodes
+kubectl config use-context cluster-name  #ager multiple cluster hon or ap ko koi specific use karna ho
 ```
 
 ---
